@@ -281,6 +281,6 @@ void SBUS_TX_BuildData(uint16_t ch_[16])
   buf_[22] = static_cast<uint8_t>((ch_[13] & 0x07FF) >> 9 | (ch_[14] & 0x07FF) << 2);
   buf_[23] = static_cast<uint8_t>((ch_[14] & 0x07FF) >> 6 | (ch_[15] & 0x07FF) << 5);
   buf_[24] = static_cast<uint8_t>((ch_[15] & 0x07FF) >> 3);
-  buf_[25] = crsf_crc8(&packet[2], packet[1] - 1); // CRC
+  buf_[25] = crsf_crc8(&buf_[2], buf_[1] - 1); // CRC
   sbusBuildingData = false;
 }
